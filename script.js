@@ -50,14 +50,16 @@ if (numero1 === null) {
   salirdeljuego();
   return null;
 }
-while (isNaN(numero1)) {
-  alert("Debe ingresar un numero");
+numero1 = Number(numero1);
+while (isNaN(numero1) || numero1 < 0 || numero1 > 10) {
+  alert("Debe ingresar un numero entre 0 y 10");
   numero1 = prompt(nombre1 + " ingrese su numero a adivinar recuerde pedirle a su compañero que no mire");
   if (numero1 === null) {
     salirdeljuego();
     return null;
   }
 }
+numero1 = Number(numero1);
 console.log("Datos jugador 1: ", nombre1, apuesta1, numero1);
 return [nombre1 , apuesta1 , numero1 ];
 }
@@ -108,14 +110,16 @@ if (numero2 === null) {
   salirdeljuego();
   return null;
 }
-while (isNaN(numero2)) {
-  alert("Debe ingresar un numero");
+numero2 = Number(numero2);
+while (isNaN(numero2) || numero2 < 0 || numero2 > 10) {
+  alert("Debe ingresar un numero entre 0 y 10");
   numero2 = prompt(nombre2 + " ingrese su numero a adivinar recuerde pedirle a su compañero que no mire");
   if (numero2 === null) {
     salirdeljuego();
     return null;
   }
 }
+numero2 = Number(numero2);
 console.log("Datos jugador 2: ", nombre2, apuesta2, numero2);
 return [nombre2 , apuesta2 , numero2 ];
 }
@@ -123,7 +127,7 @@ return [nombre2 , apuesta2 , numero2 ];
 // funcion principal del juego, evalua, descuenta y loopea hasta que alguien gane o pierda o se retire.
 function juego() {
   console.log("Juego iniciado");
-    alert("Bienvenido al juego\n\nEn este juego jugarán 2 jugadores, cada jugador deberá pagar para poder jugar un monto entre 10$ y 100$\n\nReglas del juego: Debes ser mayor de edad para poder jugar, cada jugador ingresará 1 numero que el otro jugador deberá adivinar, si el jugador adivina el numero de su compañero gana el juego y se le devolverá el dinero que le quede mas el dinero de su contricante, si no lo adivina pierde su turno\nPor cada turno que el jugador no adivine perderá 10$ de su apuesta inicial, ten en cuenta que si pierdes muchas veces tu premio se irá reduciendo\nEl juego termina cuando 1 jugador adivina o cuando algun jugador se queda sin dinero\n\nTe recordamos que no hay reembolsos, una vez esten registrados ambos jugadores y empice el juego si deseas retirarte se considera que pierdes y le daremos el dinero a tu contrincante\n\nSuerte a ambos jugadores");
+    alert("Bienvenido al juego\n\nEn este juego jugarán 2 jugadores, cada jugador deberá pagar para poder jugar un monto entre 10$ y 100$\n\nReglas del juego: Debes ser mayor de edad para poder jugar, cada jugador ingresará 1 numero entre 0 y 10 que el otro jugador deberá adivinar, si el jugador adivina el numero de su compañero gana el juego y se le devolverá el dinero que le quede mas el dinero de su contricante, si no lo adivina pierde su turno\nPor cada turno que el jugador no adivine perderá 10$ de su apuesta inicial, ten en cuenta que si pierdes muchas veces tu premio se irá reduciendo\nEl juego termina cuando 1 jugador adivina o cuando algun jugador se queda sin dinero\n\nTe recordamos que no hay reembolsos, una vez esten registrados ambos jugadores y empice el juego si deseas retirarte se considera que pierdes y le daremos el dinero a tu contrincante\n\nSuerte a ambos jugadores");
   let usuario1 = datosjugador1();
   if (usuario1 === null) {
     return;
