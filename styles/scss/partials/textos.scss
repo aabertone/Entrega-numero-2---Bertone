@@ -1,0 +1,13 @@
+.instrucciones {
+    & p {
+        color: white;
+        margin: 10px;
+    }
+}
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+}
