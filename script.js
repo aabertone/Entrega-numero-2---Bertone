@@ -1,4 +1,4 @@
-// funcion que muesra el dinero restante
+// funcion que muestra el dinero restante
 function mostrarapuesta(apuesta){
   let apuestashow = document.getElementById('apuesta')
   apuestashow.innerHTML = `
@@ -53,7 +53,7 @@ jugar.addEventListener('click', function(){
     }
   jugar.disabled = true;
     localStorage.setItem('nombrejugador', JSON.stringify(nombre1));
-    const numerorandom = Math.floor(Math.random() * 21); //genera un numero random entre 0 y 10
+    const numerorandom = Math.floor(Math.random() * 21); //genera un numero random entre 0 y 20
     console.log("El numero a adivinar es: " + numerorandom);
     localStorage.setItem('numerorandom', JSON.stringify(numerorandom));
 
