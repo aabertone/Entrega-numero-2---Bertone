@@ -12,6 +12,7 @@ h1, h2 {
 .instrucciones p {
   color: white;
   margin: 10px;
+  max-width: 500px;
 }
 
 .contenedor {
