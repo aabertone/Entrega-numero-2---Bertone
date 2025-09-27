@@ -32,26 +32,21 @@ form label {
   color: white;
 }
 
-.form2 {
+.form1, .form2, .apuesta {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-.form2 p {
+.form1 p, .form2 p, .apuesta p {
   color: white;
 }
 
-.form1 {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-.form1 p {
-  color: white;
+.apuesta p {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 button {

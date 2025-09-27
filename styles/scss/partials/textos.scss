@@ -21,7 +21,7 @@ form{
         color: white;
     }
 }
-.form2 {
+.form1, .form2, .apuesta {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -31,13 +31,10 @@ form{
         color: white;
     }
 }
-.form1 {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+.apuesta {
     & p {
-        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 0;
     }
 }

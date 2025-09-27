@@ -1,3 +1,24 @@
+// funcion que muesra el dinero restante
+function mostrarapuesta(apuesta){
+  let apuestashow = document.getElementById('apuesta')
+  apuestashow.innerHTML = `
+  <h2>Dinero restante:</h2>
+  <p>${apuesta}</p>
+  `;
+}
+// funcion para reiniciar el juego
+function reiniciarjuego(){
+  let apuestashow = document.getElementById('apuesta');
+  let datosjugador1 = document.getElementById('form1');
+  let adivinar = document.getElementById('form2');
+  localStorage.removeItem('nombrejugador');
+  localStorage.removeItem('numerorandom');
+  adivinar.innerHTML = ``;
+  datosjugador1.innerHTML = ``;
+  apuestashow.innerHTML = ``;
+  botonjugar.disabled = false;
+}
+
 // Genera el forumulario e inicia la secuencia maestra del juego
 let botonjugar = document.getElementById('botonjugar');
 botonjugar.addEventListener('click', function(){
@@ -8,6 +29,8 @@ datosjugador1.innerHTML = `
 <form>
   <label for="nombre1">Nombre Jugador:</label>
   <input type="text" id="nombre1" name="nombre1" required><br><br>
+  <label for="apuesta">Apuesta: Entre $1 y 100$</label>
+  <input type="number" id="apuestavalor" name="apuesta" min="1" required><br><br>
   <input type="submit" value="Enviar" id="enviar1">
 </form>
 `;
@@ -19,13 +42,18 @@ botonjugar.disabled = true;
 let jugar = document.getElementById('enviar1');
 jugar.addEventListener('click', function(){
     const nombre1 = document.getElementById('nombre1').value;
+    let apuesta = document.getElementById('apuestavalor').value;
     if(!nombre1 || !isNaN(nombre1)){
         alert("Debe ingresar un nombre");
         return;
     }
+    if(!apuesta || isNaN(apuesta) || apuesta <= 0 || apuesta > 100){
+      alert("Debe ingresar una apuesta valida");
+      return;
+    }
   jugar.disabled = true;
     localStorage.setItem('nombrejugador', JSON.stringify(nombre1));
-    const numerorandom = Math.floor(Math.random() * 11); //genera un numero random entre 0 y 10
+    const numerorandom = Math.floor(Math.random() * 21); //genera un numero random entre 0 y 10
     console.log("El numero a adivinar es: " + numerorandom);
     localStorage.setItem('numerorandom', JSON.stringify(numerorandom));
 
@@ -36,21 +64,27 @@ jugar.addEventListener('click', function(){
     <p>Bienvenido ${nombre1} ingrese el numero</p>
     <input type="number" id="adivina" name="adivina" min="0" max="10" required><br><br>
     <input type="submit" value="Adivinar" id="botonadivina">
-    <p>El numero a adivinar es entre 0 y 10</p>
+    <p>El numero a adivinar es entre 0 y 20</p>
     `;
+    mostrarapuesta(apuesta);
     // Logica del juego
     document.getElementById('botonadivina').addEventListener('click', function(){
       if(document.getElementById('adivina').value == numerorandom){
-        alert("Felicidades " + nombre1 + " has adivinado el numero ");}
+        alert("Felicidades " + nombre1 + " has adivinado el numero ");
+          reiniciarjuego();
+          return;
+        }
         else{
-          alert("Lo siento " + nombre1 + " no has adivinado el numero, el numero era " + numerorandom);}
+          apuesta = apuesta - 10
+          alert("Lo siento " + nombre1 + " no has adivinado el numero, vuelve a intentarlo");}
+          mostrarapuesta(apuesta);
 
-          //eliminacion de datos y reinicio del juego
-          localStorage.removeItem('nombrejugador');
-          localStorage.removeItem('numerorandom');
-          adivinar.innerHTML = ``;
-          datosjugador1.innerHTML = ``;
-          botonjugar.disabled = false;
+          //eliminacion de datos y reinicio del juego si no hay dinero
+          if(apuesta <= 0){
+            alert("Lo siento " + nombre1 + " te has quedado sin dinero, el juego terminado");
+            reiniciarjuego();
+            return;
+          }
       })
 })
 })
