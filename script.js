@@ -68,13 +68,17 @@ jugar.addEventListener('click', function(){
     //Genera los campos para jugar
     let adivinar = document.getElementById('form2')
     adivinar.innerHTML = `
+    <div class="form2-1">
     <h2>Adivina el numero</h2>
     <p>Bienvenido ${nombre1} ingrese el numero</p>
+    <p>El numero a adivinar es entre 0 y 20</p>
     <input class="input" type="number" id="adivina" name="adivina" min="0" max="20" required><br><br>
     <input type="submit" value="Adivinar" id="botonadivina">
-    <p>El numero a adivinar es entre 0 y 20</p>
+    </div>
+    <div class="form2-2">
     <span>Tiempo:</span>
     <span id="contador">60</span>
+    </div>
     `;
     mostrarapuesta(apuesta);
     // Contador de tiempo
@@ -109,7 +113,7 @@ jugar.addEventListener('click', function(){
           Swal.fire({
             icon: "error",
             toast: true,
-            timer: 1200,
+            timer: 1500,
             showConfirmButton: false,
             position: "center-end",
             text: "Lo siento " + nombre1 + " no has adivinado el numero, vuelve a intentarlo"});

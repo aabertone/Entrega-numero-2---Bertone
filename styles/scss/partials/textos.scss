@@ -14,7 +14,7 @@
 form{
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     gap: 10px;
     
@@ -22,7 +22,7 @@ form{
         color: white;
     }
 }
-.form1, .form2, .apuesta {
+.form1, .form2-1, .apuesta {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -36,7 +36,7 @@ form{
         font-size: 40px;
         font-weight: bold;
     }
-    & .input {
+    & input {
         font-size: 20px;
         text-align: center;
         width: 100px;
@@ -44,6 +44,31 @@ form{
         padding: 5px;
     }
 }
+.form2 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    & p {
+        color: white;
+        margin: 0;
+    }
+    & span {
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    & input {
+        font-size: 20px;
+        text-align: center;
+        width: 100px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    
+}
+
 .apuesta {
     & p {
         font-size: 50px;

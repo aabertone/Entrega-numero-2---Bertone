@@ -25,7 +25,7 @@ h1, h2 {
 form {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   gap: 10px;
 }
@@ -33,22 +33,46 @@ form label {
   color: white;
 }
 
-.form1, .form2, .apuesta {
+.form1, .form2-1, .apuesta {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
-.form1 p, .form2 p, .apuesta p {
+.form1 p, .form2-1 p, .apuesta p {
   color: white;
 }
-.form1 span, .form2 span, .apuesta span {
+.form1 span, .form2-1 span, .apuesta span {
   color: white;
   font-size: 40px;
   font-weight: bold;
 }
-.form1 .input, .form2 .input, .apuesta .input {
+.form1 input, .form2-1 input, .apuesta input {
+  font-size: 20px;
+  text-align: center;
+  width: 100px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.form2 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+.form2 p {
+  color: white;
+  margin: 0;
+}
+.form2 span {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+.form2 input {
   font-size: 20px;
   text-align: center;
   width: 100px;
