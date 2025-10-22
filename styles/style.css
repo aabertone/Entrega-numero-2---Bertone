@@ -43,6 +43,18 @@ form label {
 .form1 p, .form2 p, .apuesta p {
   color: white;
 }
+.form1 span, .form2 span, .apuesta span {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+.form1 .input, .form2 .input, .apuesta .input {
+  font-size: 20px;
+  text-align: center;
+  width: 100px;
+  border-radius: 10px;
+  padding: 5px;
+}
 
 .apuesta p {
   font-size: 50px;
